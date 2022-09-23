@@ -1,3 +1,11 @@
 name = "fypt-api"
 main = "src/index.js"
 compatibility_date = "2022-09-20"
+
+[env.dev.vars]
+MONGODB_DATA_SOURCE = "Tax-Watch-Prod"
+MONGODB_DATABASE = "fypt"
+
+[env.prod.vars]
+MONGODB_DATA_SOURCE = "Tax-Watch-Prod"
+MONGODB_DATABASE = "fypt"
