@@ -19,20 +19,11 @@ router.options('*', async() => {
 	return new Response(null, {status: 204, headers: optionHeader})
   })
 
-router.get('/search/:address', withParams, async({address}) => {
-	const body = json(await hcad.getAccountID(decodeURI(address))).body
-	return new Response(body, { headers })
-})
+router.get('/search/:address', withParams, async({address}) => json(await hcad.getAccountID(decodeURI(address))))
 
-router.get('/property/:account', withParams, async({account}) => {
-	const body = json(await hcad.getProperty(account)).body
-	return new Response(body, { headers })
-})
+router.get('/property/:account', withParams, async({account}) => json(await hcad.getProperty(account)))
 
-router.get('/comps/:account', withParams, async({account}) => {
-	const body = json(await hcad.getComps(account)).body
-	return new Response(body, { headers })
-})
+router.get('/comps/:account', withParams, async({account}) => json(await hcad.getComps(account)))
 
 // attach the router "handle" to the event handler
 addEventListener('fetch', event =>
