@@ -1,11 +1,23 @@
 name = "fypt-api"
 main = "src/index.js"
 compatibility_date = "2022-09-20"
+account_id = "c91024dfb25c85e3d19e6be4c12e4d44"
+node_compat = false
+
+[vars]
+MONGODB_DATA_SOURCE = "Tax-Watch-Prod"
+MONGODB_DATABASE = "fypt"
+
+[[r2_buckets]]
+binding = 'REPORTSTORAGE' # <~ valid JavaScript variable name
+bucket_name = 'fypt-reports'
 
 [env.dev.vars]
 MONGODB_DATA_SOURCE = "Tax-Watch-Prod"
 MONGODB_DATABASE = "fypt"
 
-[env.prod.vars]
-MONGODB_DATA_SOURCE = "Tax-Watch-Prod"
-MONGODB_DATABASE = "fypt"
+[[env.dev.r2_buckets]]
+binding = 'REPORTSTORAGE' # <~ valid JavaScript variable name
+bucket_name = 'fypt-reports'
+preview_bucket_name = 'fypt-reports-dev'
+

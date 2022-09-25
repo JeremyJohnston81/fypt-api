@@ -109,8 +109,8 @@ export default class HcadStore {
                         grdAdj: 1,
                         grdDesc: 1,
                         cadAdjust: { $round: [{ $subtract: [ { $multiply: [ { $divide: ["$imprvValNoXf", "$cadAdj"] }, cadAdj ] }, "$imprvValNoXf" ] }, 2] },
-                        cduAdjust: { $round: [{ $subtract: [ { $multiply: [ { $divide: ["$imprvValNoXf", "$cadAdj"] }, cduAdj ] }, "$imprvValNoXf" ] }, 2] },
-                        grdAdjust: { $round: [{ $subtract: [ { $multiply: [ { $divide: ["$imprvValNoXf", "$cadAdj"] }, grdAdj ] }, "$imprvValNoXf" ] }, 2] },
+                        cduAdjust: { $round: [{ $subtract: [ { $multiply: [ { $divide: ["$imprvValNoXf", "$cduAdj"] }, cduAdj ] }, "$imprvValNoXf" ] }, 2] },
+                        grdAdjust: { $round: [{ $subtract: [ { $multiply: [ { $divide: ["$imprvValNoXf", "$grdAdj"] }, grdAdj ] }, "$imprvValNoXf" ] }, 2] },
                     }
                 },
                 {
@@ -150,6 +150,6 @@ export default class HcadStore {
         }
 
         const { documents } = await dataApi(dbName, "aggregate", query)
-        return documents
+        return { subjectProperty, comps: documents}
     }
 }
