@@ -1,11 +1,9 @@
 import { Router } from 'itty-router'
-import { json, error, missing, withParams, withContent } from 'itty-router-extras'
+import { json, withParams } from 'itty-router-extras'
 import HcadStore from './stores/hcadStore'
-import ReportStore from './stores/reportStore'
 
 const router = Router()
 const hcad = new HcadStore()
-const reports = new ReportStore()
 
 const headers = {
 	'Access-Control-Allow-Origin': '*',

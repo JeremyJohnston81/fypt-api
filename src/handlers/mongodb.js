@@ -27,9 +27,31 @@ export async function dataApi(collection, action, query = {}, ejson = false) {
 		body: JSON.stringify(requestBody)
 	})
 
-	if (response.status != 200) {
-		console.log(JSON.stringify(response))
-		return Promise.reject(response)
+	if (response.status == 200) {
+		return response.json()
 	}
-    else return response.json()
+	else {
+		let error = {
+			status: response.status,
+			text: response.statusText,
+			description: "Unknown Error"
+		}
+
+		switch (response.status) {
+			case 400:
+				error.description = "Invalid Paramaters"
+				break;
+		}
+
+		let errorResponse = {
+			document : {
+				error
+			},
+			documents : {
+				error
+			}
+		}
+
+		return errorResponse
+	}
 }
