@@ -8,9 +8,9 @@ node_compat = false
 MONGODB_DATA_SOURCE = "Tax-Watch-Prod"
 MONGODB_DATABASE = "fypt"
 
-[[r2_buckets]]
-binding = 'REPORTSTORAGE' # <~ valid JavaScript variable name
-bucket_name = 'fypt-reports'
+# [[r2_buckets]]
+# binding = 'REPORTSTORAGE' # <~ valid JavaScript variable name
+# bucket_name = 'fypt-reports'
 
 [env.dev.vars]
 MONGODB_DATA_SOURCE = "Tax-Watch-Prod"
