@@ -3,6 +3,17 @@ import { dataApi } from "../handlers/mongodb";
 const dbName = "hcad";
 
 export default class HcadStore {
+  async getLastUpdated() {
+    try {
+      const { document } = await dataApi("lastUpdated", "findOne", {});
+
+      return document;
+    } catch (err) {
+      console.log(err);
+      return this.#err();
+    }
+  }
+
   async getAccountID(address) {
     try {
       const addressArray = address.split(" ");
