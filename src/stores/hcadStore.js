@@ -179,7 +179,7 @@ export default class HcadStore {
               grdDesc: 1,
               cadAdjust: {
                 $cond: [
-                  { eq: [cadAdj, 0] },
+                  { $eq: [cadAdj, 0] },
                   { $add: [0, 0] },
                   {
                     $round: [
@@ -201,7 +201,7 @@ export default class HcadStore {
               },
               cduAdjust: {
                 $cond: [
-                  { eq: [cduAdj, 0] },
+                  { $eq: [cduAdj, 0] },
                   { $add: [0, 0] },
                   {
                     $round: [
@@ -223,7 +223,7 @@ export default class HcadStore {
               },
               grdAdjust: {
                 $cond: [
-                  { eq: [grdAdj, 0] },
+                  { $eq: [grdAdj, 0] },
                   { $add: [0, 0] },
                   {
                     $round: [
