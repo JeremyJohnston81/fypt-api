@@ -4,6 +4,7 @@ import {
   Router,
   withParams
 } from "itty-router";
+import { version } from "@root/package.json";
 import HcadStore from "./stores/hcadStore";
 
 const router = Router();
@@ -13,20 +14,28 @@ const { preflight, corsify } = createCors({
 });
 
 router
+  // register global middleware
   .all("*", preflight, withParams)
 
+  // GET /version - exposes the API version
+  .get("/version", () => ({ version }))
+
+  // GET /search/:address - finds the account ID for a given address
   .get("/search/:address", ({ address }) =>
     hcad.getAccountID(decodeURI(address))
   )
 
+  // GET /property/:account - finds the property for a given account
   .get("/property/:account", ({ account }) =>
     hcad.getProperty(account)
   )
 
+  // GET /comps/:account - finds the comps for a given account
   .get("/comps/:account", ({ account }) =>
     hcad.getComps(account)
   )
 
+  // GET /lastUpdated - returns the date the HCAD store was last updated
   .get("/lastUpdated", () =>
     hcad.getLastUpdated()
   )

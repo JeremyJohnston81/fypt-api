@@ -2,13 +2,17 @@
   "name": "fypt-api",
   "version": "0.0.0",
   "devDependencies": {
-    "wrangler": "^2.1.9"
+    "wrangler": "^2.1.9",
+    "yarn-release": "^1.10.5"
   },
   "private": true,
   "scripts": {
     "dev": "wrangler dev",
     "start": "wrangler dev",
-    "deploy": "wrangler publish"
+    "deploy": "wrangler publish",
+    "release": "release --push --nopublish --patch",
+    "postrelease": "wrangler publish",
+    "tail": "wrangler tail"
   },
   "dependencies": {
     "itty-router": "^4.0.0-next.46"
