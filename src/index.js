@@ -4,7 +4,7 @@ import {
   Router,
   withParams
 } from "itty-router";
-import { version } from "@root/package.json";
+import { version } from "../package.json";
 import HcadStore from "./stores/hcadStore";
 
 const router = Router();
