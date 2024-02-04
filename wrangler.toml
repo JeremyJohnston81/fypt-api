@@ -5,7 +5,7 @@ account_id = "c91024dfb25c85e3d19e6be4c12e4d44"
 node_compat = false
 
 [vars]
-MONGODB_DATA_SOURCE = "Tax-Watch-Prod"
+MONGODB_DATA_SOURCE = "FYPT"
 MONGODB_DATABASE = "fypt"
 
 # [[r2_buckets]]
@@ -13,7 +13,7 @@ MONGODB_DATABASE = "fypt"
 # bucket_name = 'fypt-reports'
 
 [env.dev.vars]
-MONGODB_DATA_SOURCE = "Tax-Watch-Prod"
+MONGODB_DATA_SOURCE = "FYPT"
 MONGODB_DATABASE = "fypt"
 
 [[env.dev.r2_buckets]]
